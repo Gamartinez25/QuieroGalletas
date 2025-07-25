@@ -1,289 +1,115 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quiero Galletas</title>
-  <style>
-    :root {
-      --color-primario: #197A81;
-      --color-secundario: #D8A280;
-      --color-fondo: #17666A;
-      --color-texto: #FFFFFF;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    body {
-      background-color: var(--color-fondo);
-      color: var(--color-texto);
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: rgba(25, 122, 129, 0.85);
-      padding: 1rem 2rem;
-      border-radius: 0 0 25px 25px;
-      backdrop-filter: blur(10px);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: var(--color-texto);
-    }
-
-    .logo img {
-      height: 40px;
-      border-radius: 50%;
-      margin-right: 0.5rem;
-    }
-
-    nav {
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    nav a {
-      color: var(--color-texto);
-      text-decoration: none;
-      transition: opacity 0.3s, background-color 0.3s;
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-    }
-
-    nav a:hover, nav a.active {
-      background-color: rgba(255, 255, 255, 0.2);
-    }
-
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      gap: 5px;
-    }
-
-    .menu-toggle span {
-      height: 3px;
-      width: 25px;
-      background: var(--color-texto);
-      border-radius: 3px;
-    }
-
-    @media (max-width: 768px) {
-      .menu-toggle {
-        display: flex;
-      }
-
-      nav {
-        display: none;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background-color: rgba(25, 122, 129, 0.95);
-        flex-direction: column;
-        align-items: center;
-        padding: 1rem 0;
-        border-radius: 0 0 20px 20px;
-      }
-
-      nav.show {
-        display: flex;
-      }
-    }
-
-    .hero {
-      display: flex;
-      flex-wrap: wrap;
-      /* Cambiado a flex-direction: row-reverse para poner la imagen a la derecha */
-      flex-direction: row-reverse; /* Esto invierte el orden visual de los elementos flex */
-      /* Ahora justify-content: space-between para separar imagen y texto */
-      justify-content: space-between; 
-      align-items: center; /* Alinea los ítems al centro verticalmente */
-      /* text-align: center; para que el texto se alinee al centro */
-      text-align: center; /* Vuelve a centrar el texto dentro del hero */
-      padding: 4rem 2rem;
-      position: relative;
-      overflow: hidden;
-      gap: 2rem;
-    }
-
-    .hero-text {
-      flex: 1.2;
-      min-width: 280px;
-      /* text-align: center; para centrar el texto dentro de hero-text */
-      text-align: center; /* Centra el texto dentro del contenedor de texto */
-    }
-
-    .hero-img {
-      flex: 0.8;
-      min-width: 250px;
-      max-width: 500px;
-      margin: 0 auto; 
-    }
-
-    .hero-img img {
-      width: 100%;
-      border-radius: 20px;
-      height: auto; 
-      display: block;
-    }
-
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      color: var(--color-secundario);
-    }
-
-    p {
-      font-size: 1.2rem;
-      max-width: 600px; /* Vuelve a un max-width para el párrafo para que no se extienda demasiado */
-      margin: 0 auto 2rem; /* Centra el párrafo */
-    }
-
-    .botones {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      /* justify-content: center; para centrar los botones */
-      justify-content: center; /* Centra los botones */
-    }
-
-    .botones button {
-      background-color: var(--color-secundario);
-      color: var(--color-fondo);
-      border: none;
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      border-radius: 25px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    .botones button:hover {
-      background-color: #c58d6f;
-    }
-
-    .burbujas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      overflow: hidden;
-    }
-
-    .burbuja {
-      position: absolute;
-      bottom: -100px;
-      width: 80px;
-      height: 80px;
-      background-color: rgba(255, 255, 255, 0.15);
-      border-radius: 50%;
-      animation: flotar 10s infinite;
-    }
-
-    .burbuja:nth-child(2) { left: 20%; animation-delay: 2s; width: 100px; height: 100px; }
-    .burbuja:nth-child(3) { left: 40%; animation-delay: 4s; width: 90px; height: 90px; }
-    .burbuja:nth-child(4) { left: 60%; animation-delay: 6s; width: 120px; height: 120px; }
-    .burbuja:nth-child(5) { left: 80%; animation-delay: 8s; width: 70px; height: 70px; }
-
-    @keyframes flotar {
-      0% { transform: translateY(0) scale(1); opacity: 0.6; }
-      50% { transform: translateY(-50vh) scale(1.2); opacity: 1; }
-      100% { transform: translateY(-100vh) scale(1); opacity: 0; }
-    }
-
-    /* Media query para asegurar que en pantallas pequeñas la imagen siga centrada o con buen layout */
-    @media (max-width: 900px) { /* Ajusta este breakpoint según necesites */
-        .hero {
-            flex-direction: column; /* Apila la imagen y el texto */
-            align-items: center; /* Centra los elementos apilados */
-            text-align: center; /* Centra el texto cuando están apilados */
-        }
-
-        .hero-text {
-            text-align: center; /* Centra el texto dentro de hero-text también */
-        }
-
-        .botones {
-            justify-content: center; /* Centra los botones cuando están apilados */
-        }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiero Galletas</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <div class="logo">
-      <img src="images/Logo_1.png" alt="Logo" />
-      Quiero Galletas
-    </div>
-    <div class="menu-toggle" id="toggleBtn">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <nav id="navLinks">
-      <a href="#">Inicio</a>
-      <a href="#">Productos</a>
-      <a href="#">Nosotros</a>
-      <a href="#">Contacto</a>
-    </nav>
-  </header>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="images/Logo_1.png" alt="Quiero Galletas Logo" class="logo-img">
+                <span>Quiero Galletas</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Sobre Nosotros</a></li>
+                <li><a href="#">Nuestras Galletas</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+            
+        </nav>
+    </header>
 
-  <section class="hero">
-    <div class="hero-img">
-      <img src="images/pngwing.com.png" alt="Imagen de galletas">
-    </div>
-    <div class="hero-text">
-      <h1>Galletas artesanales irresistibles</h1>
-      <p>Descubre el sabor auténtico de nuestras galletas hechas con amor, ingredientes naturales y el toque dulce que necesitas.</p>
-      <div class="botones">
-        <button>Catalogo</button>
-        <button>Contactanos</button>
-      </div>
-    </div>
+    <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Galletas <br> Artesanales</h1>
+                <p class="hero-description">
+                    Sumérgete en el delicioso mundo de nuestras galletas artesanales. Cada una es horneada con pasión, utilizando ingredientes frescos y las mejores recetas para ofrecerte una experiencia de sabor inolvidable. ¡Un bocado de felicidad en cada galleta!
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary">¡Pide Ahora!</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="images/pngwing.com.png" alt="Variedad de Galletas Artesanales">
+                <div class="special-tag">
+                    <span class="tag-text">¡Edición Limitada!</span>
+                </div>
+            </div>
+        </section>
 
-    <div class="burbujas">
-      <div class="burbuja"></div>
-      <div class="burbuja"></div>
-      <div class="burbuja"></div>
-      <div class="burbuja"></div>
-      <div class="burbuja"></div>
-    </div>
-  </section>
+        <section class="product-showcase">
+            <div class="product-card chocolate-chip">
+                <div class="product-image">
+                    <img src="https://i.pinimg.com/736x/09/ce/c6/09cec60d05ccad91a7f4684f967a6bbe.jpg" alt="Galleta de Chispas de Chocolate">
+                </div>
+                <div class="product-info">
+                    <h3>Galleta de Chocolate</h3>
+                    <div class="stars">
+                        <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+                    </div>
+                    <p>
+                        La clásica favorita, con abundantes chispas de chocolate derretido y una textura perfectamente suave. ¡Irresistible!
+                    </p>
+                    <div class="card-buttons">
+                        <button class="btn btn-card-primary">¡Ordena la tuya!</button>
+                    </div>
+                </div>
+            </div>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const toggleBtn = document.getElementById("toggleBtn");
-      const nav = document.getElementById("navLinks");
+            <div class="product-card avena-pasa">
+                <div class="product-image">
+                    <img src="https://i.pinimg.com/1200x/94/f8/51/94f851286171c7d8d1f95572828dc5ba.jpg" alt="Galleta de Avena y Pasas">
+                </div>
+                <div class="product-info">
+                    <h3>Galleta de Avena y Pasas</h3>
+                    <div class="stars">
+                        <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+                    </div>
+                    <p>
+                        Una opción saludable y deliciosa, con la dulzura natural de las pasas y la fibra de la avena. Perfecta para cualquier momento.
+                    </p>
+                    <div class="card-buttons">
+                        <button class="btn btn-card-primary">¡Ordena la tuya!</button>
+                    </div>
+                </div>
+            </div>
 
-      toggleBtn.addEventListener("click", () => {
-        nav.classList.toggle("show");
-      });
+            <div class="product-card red-velvet">
+                <div class="product-image">
+                    <img src="https://i.pinimg.com/736x/6a/3f/3d/6a3f3d89cea7ba94ef47a0e5088862da.jpg" alt="Galleta Red Velvet">
+                </div>
+                <div class="product-info">
+                    <h3>Galleta Red Velvet</h3>
+                    <div class="stars">
+                        <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+                    </div>
+                    <p>
+                        Un toque de elegancia en cada mordisco. Suave, con un sutil sabor a cacao y un glaseado cremoso. ¡Una obra de arte!
+                    </p>
+                    <div class="card-buttons">
+                        <button class="btn btn-card-primary">¡Ordena la tuya!</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-      document.querySelectorAll("nav a").forEach(link => {
-        link.addEventListener("click", function () {
-          document.querySelectorAll("nav a").forEach(a => a.classList.remove("active"));
-          this.classList.add("active");
-          nav.classList.remove("show"); // cerrar nav al hacer clic
-        });
-      });
-    });
-  </script>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="images/Logo_1.png" alt="Footer Logo" class="logo-img">
+            </div>
+            
+            <p class="copyright">Copyright © Quiero Galletas. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

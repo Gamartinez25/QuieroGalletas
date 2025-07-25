@@ -1,0 +1,481 @@
+:root {
+    --color-primario: #197A81; /* Verde azulado */
+    --color-secundario: #D8A280; /* Terracota/Marrón claro */
+    --color-fondo: #17666A; /* Verde oscuro */
+    --color-texto: #FFFFFF; /* Blanco */
+    --color-header-bg: #f9f9f9; /* Fondo claro para header/footer */
+    --color-light-grey: #f0f0f0; /* Fondo general más claro */
+    --color-dark-grey: #555; /* Texto principal oscuro */
+    --color-star: #FFD700; /* Dorado para estrellas */
+
+    /* Colores específicos para las tarjetas de galletas */
+    --color-chocolate-card: #8B4513; /* Símil chocolate oscuro */
+    --color-avena-card: #C2B280; /* Beige avena */
+    --color-redvelvet-card: #B03A58; /* Rojo vino/terracota para Red Velvet */
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-light-grey);
+    color: var(--color-dark-grey);
+}
+
+/* Header */
+header {
+    background-color: var(--color-header-bg);
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.2em;
+    color: var(--color-primario);
+}
+
+/* Fix for logo image size */
+.logo-img {
+    max-width: 40px; /* Adjust as needed */
+    height: auto;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--color-dark-grey);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--color-primario);
+}
+
+.search-bar {
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.search-bar input {
+    border: none;
+    padding: 8px 15px;
+    outline: none;
+    font-size: 0.9em;
+}
+
+.search-bar button {
+    background-color: transparent;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+.search-bar button img {
+    vertical-align: middle;
+}
+
+/* Hero Section */
+.hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 40px auto;
+    background-color: var(--color-header-bg);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    flex: 1;
+    padding-right: 50px;
+}
+
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.5em;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: var(--color-primario);
+}
+
+.hero-title br:first-of-type {
+    color: var(--color-secundario);
+}
+
+.hero-description {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: var(--color-dark-grey);
+}
+
+.hero-buttons .btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-right: 15px;
+}
+
+.btn-primary {
+    background-color: var(--color-primario);
+    color: var(--color-texto);
+}
+
+.btn-primary:hover {
+    background-color: #145e62;
+}
+
+.hero-image {
+    flex: 0.8;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.special-tag {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: #E25B81; /* Color de la etiqueta de edición limitada */
+    color: var(--color-texto);
+    padding: 15px 25px;
+    border-radius: 50%; /* Para una etiqueta circular */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: rotate(10deg);
+    white-space: nowrap; /* Evita que el texto se rompa */
+}
+
+.special-tag .tag-text {
+    font-size: 1.1em;
+}
+
+/* Product Showcase */
+.product-showcase {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-card {
+    background-color: var(--color-header-bg);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    width: calc(33% - 20px);
+    min-width: 300px;
+    text-align: center;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-image {
+    background-color: #E6F3F2; /* Fondo claro para imágenes, ajustar según sea necesario */
+    padding: 20px;
+}
+
+.product-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.product-info {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8em;
+    margin-top: 0;
+    color: var(--color-dark-grey);
+}
+
+.product-card .stars {
+    color: var(--color-star);
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.product-card p {
+    font-size: 0.95em;
+    line-height: 1.5;
+    color: var(--color-dark-grey);
+    margin-bottom: 25px;
+}
+
+.card-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-card-primary {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: var(--color-primario); /* Default for primary card button */
+    color: var(--color-texto);
+}
+
+.btn-card-primary:hover {
+    background-color: #145e62;
+}
+
+/* Specific card colors and button adjustments */
+.chocolate-chip .product-info {
+    background-color: var(--color-chocolate-card);
+    color: var(--color-texto);
+}
+.chocolate-chip .product-info h3,
+.chocolate-chip .product-info p,
+.chocolate-chip .product-info .stars {
+    color: var(--color-texto);
+}
+.chocolate-chip .btn-card-primary {
+    background-color: #F4A460; /* Símil naranja claro */
+    color: var(--color-chocolate-card);
+}
+.chocolate-chip .btn-card-primary:hover {
+    background-color: #EE9A50;
+}
+
+
+.avena-pasa .product-info {
+    background-color: var(--color-avena-card);
+    color: var(--color-dark-grey); /* Texto oscuro para fondo claro */
+}
+.avena-pasa .product-info h3,
+.avena-pasa .product-info p,
+.avena-pasa .product-info .stars {
+    color: var(--color-dark-grey);
+}
+.avena-pasa .btn-card-primary {
+    background-color: var(--color-primario);
+    color: var(--color-texto);
+}
+.avena-pasa .btn-card-primary:hover {
+    background-color: #145e62;
+}
+
+.red-velvet .product-info {
+    background-color: var(--color-redvelvet-card);
+    color: var(--color-texto);
+}
+.red-velvet .product-info h3,
+.red-velvet .product-info p,
+.red-velvet .product-info .stars {
+    color: var(--color-texto);
+}
+.red-velvet .btn-card-primary {
+    background-color: #F8BBD0; /* Rosa claro para Red Velvet */
+    color: var(--color-redvelvet-card);
+}
+.red-velvet .btn-card-primary:hover {
+    background-color: #F6A3C0;
+}
+
+
+/* Footer */
+footer {
+    background-color: var(--color-header-bg);
+    padding: 30px 20px;
+    text-align: center;
+    border-top: 1px solid #eee;
+    margin-top: 50px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.social-icons a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.social-icons img {
+    vertical-align: middle;
+}
+
+.copyright {
+    font-size: 0.9em;
+    color: var(--color-dark-grey);
+}
+
+/* Floating elements (decorative dots) */
+.hero-section::before,
+.hero-section::after {
+    content: '';
+    position: absolute;
+    background-color: rgba(var(--color-primario), 0.2);
+    border-radius: 50%;
+    filter: blur(5px);
+    z-index: 0;
+}
+
+.hero-section::before {
+    width: 60px;
+    height: 60px;
+    top: 20%;
+    left: 5%;
+    background-color: rgba(var(--color-primario), 0.3);
+}
+
+.hero-section::after {
+    width: 40px;
+    height: 40px;
+    bottom: 15%;
+    right: 7%;
+    background-color: rgba(var(--color-secundario), 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .navbar {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .nav-links {
+        margin-top: 10px;
+    }
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 50px 20px;
+    }
+    .hero-content {
+        padding-right: 0;
+        margin-bottom: 40px;
+    }
+    .hero-image {
+        margin-top: 30px;
+    }
+    .hero-title {
+        font-size: 3.5em;
+    }
+    .product-card {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+    .nav-links li {
+        margin: 0;
+    }
+    .hero-title {
+        font-size: 2.8em;
+    }
+    .hero-description {
+        font-size: 1em;
+    }
+    .hero-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .hero-buttons .btn {
+        margin-right: 0;
+        width: 80%;
+        max-width: 250px;
+    }
+    .product-card {
+        width: 100%;
+    }
+    .search-bar {
+        width: 80%;
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo span {
+        display: none;
+    }
+    .hero-title {
+        font-size: 2.2em;
+    }
+    .special-tag {
+        right: 10px;
+        bottom: 10px;
+        padding: 10px 15px;
+        font-size: 0.8em;
+    }
+    .special-tag .tag-text {
+        font-size: 0.9em;
+    }
+}
+/* Modifica o añade esta regla */
+.footer-logo .logo-img { /* Apunta específicamente a la imagen del logo dentro del footer */
+    max-width: 90px; /* Aumenta este valor para hacerlo más grande, por ejemplo, 60px o 80px */
+    height: auto;
+}
