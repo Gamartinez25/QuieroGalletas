@@ -1,115 +1,147 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiero Galletas</title>
+    <title>Quiero Galletas - Galletas Artesanales en Maracay</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
-        <nav class="navbar">
-            <div class="logo">
-                <img src="images/Logo_1.png" alt="Quiero Galletas Logo" class="logo-img">
-                <span>Quiero Galletas</span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Sobre Nosotros</a></li>
-                <li><a href="#">Nuestras Galletas</a></li>
-                <li><a href="#">Contacto</a></li>
-            </ul>
-            
-        </nav>
+        <div class="container topbar">
+            <div class="logo">Quiero Galletas.</div>
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="#home">Inicio</a></li>
+                    <li><a href="catalogo.html">Nuestras Galletas</a></li>
+                    <li><a href="#nosotros">Sobre Nosotros</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+                <div class="hamburger-menu">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <div class="profile"></div>
+            </nav>
+        </div>
     </header>
 
-    <main>
-        <section class="hero-section">
-            <div class="hero-content">
-                <h1 class="hero-title">Galletas <br> Artesanales</h1>
-                <p class="hero-description">
-                    Sumérgete en el delicioso mundo de nuestras galletas artesanales. Cada una es horneada con pasión, utilizando ingredientes frescos y las mejores recetas para ofrecerte una experiencia de sabor inolvidable. ¡Un bocado de felicidad en cada galleta!
-                </p>
-                <div class="hero-buttons">
-                    <button class="btn btn-primary">¡Pide Ahora!</button>
-                </div>
+    <section id="home" class="hero">
+    <div class="container hero-content-wrapper"> <div class="hero-image-left">
+            <img src="images/—Pngtree—soft cookies_17279931.png" alt="Imagen de galleta principal" class="animated-image">
             </div>
-            <div class="hero-image">
-                <img src="images/pngwing.com.png" alt="Variedad de Galletas Artesanales">
-                <div class="special-tag">
-                    <span class="tag-text">¡Edición Limitada!</span>
-                </div>
-            </div>
-        </section>
+        <div class="hero-text-right"> <h1>Descubre el Sabor Artesanal de <span class="highlight">Quiero Galletas</span></h1>
+            <p >Galletas hechas con amor, los mejores ingredientes y la tradición de Maracay.</p>
+        </div>
+    </div>
+</section>
 
-        <section class="product-showcase">
-            <div class="product-card chocolate-chip">
-                <div class="product-image">
-                    <img src="https://i.pinimg.com/736x/09/ce/c6/09cec60d05ccad91a7f4684f967a6bbe.jpg" alt="Galleta de Chispas de Chocolate">
-                </div>
-                <div class="product-info">
-                    <h3>Galleta de Chocolate</h3>
-                    <div class="stars">
-                        <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+    <section id="why-choose-us" class="why-choose-us-section container" style="margin-top: 80px;">
+        <h2 style="font-size: 1.8rem; color: var(--text); text-align: center; margin-bottom: 40px; font-weight: 600;">¿Por Qué Elegirnos?</h2>
+        <div class="content-wrapper">
+            <div class="text-and-features">
+                <p class="section-description" style="text-align:justify; margin-bottom: 30px; font-size: 1.1rem; color: #090909;">En Quiero Galletas, cada bocado es una experiencia. Nos enorgullecemos de ofrecerte productos que destacan por su calidad y sabor incomparable. Descubre por qué somos tu mejor opción para endulzar tus momentos.</p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-seedling icon"></i>
+                        Ingredientes seleccionados de la más alta calidad.
                     </div>
-                    <p>
-                        La clásica favorita, con abundantes chispas de chocolate derretido y una textura perfectamente suave. ¡Irresistible!
-                    </p>
-                    <div class="card-buttons">
-                        <button class="btn btn-card-primary">¡Ordena la tuya!</button>
+                    <div class="feature-card">
+                        <i class="fas fa-truck icon"></i>
+                        Entregas rápidas y seguras solo en las ciudades de Maracay y Valencia.
                     </div>
-                </div>
-            </div>
-
-            <div class="product-card avena-pasa">
-                <div class="product-image">
-                    <img src="https://i.pinimg.com/1200x/94/f8/51/94f851286171c7d8d1f95572828dc5ba.jpg" alt="Galleta de Avena y Pasas">
-                </div>
-                <div class="product-info">
-                    <h3>Galleta de Avena y Pasas</h3>
-                    <div class="stars">
-                        <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+                    <div class="feature-card">
+                        <i class="fas fa-heart icon"></i>
+                        Elaboración artesanal con mucho amor y dedicación.
                     </div>
-                    <p>
-                        Una opción saludable y deliciosa, con la dulzura natural de las pasas y la fibra de la avena. Perfecta para cualquier momento.
-                    </p>
-                    <div class="card-buttons">
-                        <button class="btn btn-card-primary">¡Ordena la tuya!</button>
+                    <div class="feature-card">
+                        <i class="fas fa-cookie-bite icon"></i>
+                        Frescura garantizada, deliciosas y suaves
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-layer-group icon"></i>
+                        Crujientes por fuera, suaves por dentro.
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-palette icon"></i>
+                        Variedad de sabores únicos para todos los gustos.
                     </div>
                 </div>
             </div>
+            <div class="why-choose-us-image">
+                <img src="https://i.pinimg.com/1200x/a8/a9/3e/a8a93e691c6e8742f6bf93ad0f90cb98.jpg" alt="Variedad de galletas">
+            </div>
+        </div>
+    </section>
 
-            <div class="product-card red-velvet">
-                <div class="product-image">
-                    <img src="https://i.pinimg.com/736x/6a/3f/3d/6a3f3d89cea7ba94ef47a0e5088862da.jpg" alt="Galleta Red Velvet">
-                </div>
-                <div class="product-info">
-                    <h3>Galleta Red Velvet</h3>
-                    <div class="stars">
-                        <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
-                    </div>
-                    <p>
-                        Un toque de elegancia en cada mordisco. Suave, con un sutil sabor a cacao y un glaseado cremoso. ¡Una obra de arte!
-                    </p>
-                    <div class="card-buttons">
-                        <button class="btn btn-card-primary">¡Ordena la tuya!</button>
-                    </div>
+    <section id="nosotros" class="about-products container">
+        <div class="product-img">
+            <img src="images/Perfil.png" alt="Galletas recién horneadas" />
+        </div>
+        <div class="product-info">
+            <h3 style="font-size: 1.25rem; color: var(--primary); margin-bottom: 10px; text-align: center;">Nuestra Historia de Sabor</h3>
+            <p style="text-align: justify;">En Quiero Galletas, creemos que los mejores momentos se acompañan de los mejores sabores. Nacimos en Maracay, Venezuela, con la misión de endulzar la vida de nuestros clientes con galletas artesanales que evocan la calidez del hogar. Cada receta es un legado, cada galleta una obra de arte.</p>
+            <a href="#contacto" class="btn">Pide las tuyas</a>
+        </div>
+    </section>
+
+    <section id="productos" class="container" style="margin-top: 80px;">
+        <h2 style="font-size: 1.8rem; color: var(--text); text-align: center; margin-bottom: 40px; font-weight: 600;">Populares</h2>
+        <div class="products">
+            <div class="product-card" >
+                <div class="product-image" style="background-image: url('https://i.pinimg.com/1200x/53/43/e1/5343e1804c833a9e157a47c09f77708b.jpg')"></div> <div class="product-details">
+                    <div class="product-title" >Galletas de Mantequilla Caseras</div>
+                    <div class="product-price">$6.00</div>
                 </div>
             </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-logo">
-                <img src="images/Logo_1.png" alt="Footer Logo" class="logo-img">
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://i.pinimg.com/736x/ff/c5/76/ffc57666ad414def7964011d585117ca.jpg');"></div>
+                <div class="product-details">
+                    <div class="product-title">Galletas de Chispas de Chocolate</div>
+                    <div class="product-price">$8.50</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://i.pinimg.com/736x/f3/c8/b8/f3c8b833ede0c61602faf8521d7c2813.jpg');"></div>
+                <div class="product-details">
+                    <div class="product-title">Galletas de Avena y Pasas</div>
+                    <div class="product-price">$7.99</div>
+                </div>
             </div>
             
-            <p class="copyright">Copyright © Quiero Galletas. Todos los derechos reservados.</p>
+           
+        </div>
+    </section>
+
+    <section id="contacto" class="contact-section container">
+    <h2 style="font-size: 1.8rem; color: var(--text); text-align: center; margin-bottom: 30px; font-weight: 600;">¡Contáctanos!</h2>
+    <p style="font-size: 1.1rem; color: #666; text-align: center; margin-bottom: 30px;">Estamos listos para endulzar tu día. Encuéntranos en nuestras redes o llámanos directamente.</p>
+
+    <div class="social-links" style="text-align: center; margin-top: 15px; margin-bottom: 30px;">
+        <a href="https://facebook.com/tupagina" target="_blank" style="color: var(--primary); font-size: 2.5rem; margin: 0 15px; text-decoration: none;"><i class="fab fa-facebook-square"></i></a>
+        <a href="https://instagram.com/quierogalletasve" target="_blank" style="color: var(--primary); font-size: 2.5rem; margin: 0 15px; text-decoration: none;"><i class="fab fa-instagram-square"></i></a>
+        <a href="https://twitter.com/quierogalletasve" target="_blank" style="color: var(--primary); font-size: 2.5rem; margin: 0 15px; text-decoration: none;"><i class="fab fa-x-twitter"></i></a>
+    </div>
+
+    <div class="contact-numbers" style="text-align: center; margin-top: 20px;">
+        <p style="font-size: 1.2rem; color: #666; margin-bottom: 10px;"><i class="fas fa-phone-alt" style="margin-right: 8px; color: var(--accent);"></i> Llamanos al: +58 412-1234567</p>
+        <p style="font-size: 1.2rem; color: #666;"><i class="fas fa-mobile-alt" style="margin-right: 8px; color: var(--accent);"></i> WhatsApp: +58 424-7654321</p>
+    </div>
+</section>
+
+    <footer>
+        <div class="container">
+            &copy; 2025 Quiero Galletas. Hecho con amor en Maracay, Venezuela. Todos los derechos reservados.
         </div>
     </footer>
 
     <script src="script.js"></script>
+        
+    </script>
 </body>
 </html>

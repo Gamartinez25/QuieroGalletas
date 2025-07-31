@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "nombre": "Galleta con Chispas de Chocolate Clásica",
+    "precio": 3.25,
+    "descripcion": "La galleta de la abuela, con crujientes bordes dorados y un centro suave y masticable, repleta de trozos generosos de chocolate semiamargo. Un clásico atemporal.",
+    "imagen_src": "https://i.pinimg.com/1200x/94/f8/51/94f851286171c7d8d1f95572828dc5ba.jpg"
+  },
+  {
+    "id": 2,
+    "nombre": "Galleta Red Velvet Cremosa",
+    "precio": 4.50,
+    "descripcion": "Una deliciosa galleta Red Velvet con una capa de glaseado cremoso y trozos de galleta esparcidos. Perfecta para un antojo dulce y un capricho. Textura suave y sabor a cacao.",
+    "imagen_src": "https://i.pinimg.com/1200x/94/f8/51/94f851286171c7d8d1f95572828dc5ba.jpg"
+  },
+  {
+    "id": 3,
+    "nombre": "Galleta de Avena y Pasas Casera",
+    "precio": 3.75,
+    "descripcion": "Galleta rústica de avena con el toque dulce de las pasas, horneada a la perfección para un bocado saludable y satisfactorio. Ideal para el café o el té.",
+    "imagen_src": "https://i.pinimg.com/1200x/94/f8/51/94f851286171c7d8d1f95572828dc5ba.jpg"
+  },
+  {
+    "id": 4,
+    "nombre": "Galleta de Mantequilla de Maní",
+    "precio": 3.95,
+    "descripcion": "Intenso sabor a mantequilla de maní, con una textura suave y desmenuzable. Perfecta para los amantes del cacahuete. Un placer cremoso en cada mordisco.",
+    "imagen_src": "https://i.pinimg.com/1200x/94/f8/51/94f851286171c7d8d1f95572828dc5ba.jpg"
+  },
+  {
+    "id": 5,
+    "nombre": "Galleta de Jengibre y Especias",
+    "precio": 4.10,
+    "descripcion": "Aromática galleta con especias como jengibre, canela y nuez moscada. Dulce y ligeramente picante, ideal para las tardes de invierno o un toque festivo.",
+    "imagen_src": "https://i.pinimg.com/1200x/94/f8/51/94f851286171c7d8d1f95572828dc5ba.jpg"
+  }
+]

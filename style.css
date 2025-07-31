@@ -1,481 +1,582 @@
-:root {
-    --color-primario: #197A81; /* Verde azulado */
-    --color-secundario: #D8A280; /* Terracota/Marrón claro */
-    --color-fondo: #17666A; /* Verde oscuro */
-    --color-texto: #FFFFFF; /* Blanco */
-    --color-header-bg: #f9f9f9; /* Fondo claro para header/footer */
-    --color-light-grey: #f0f0f0; /* Fondo general más claro */
-    --color-dark-grey: #555; /* Texto principal oscuro */
-    --color-star: #FFD700; /* Dorado para estrellas */
+/* p.css */
 
-    /* Colores específicos para las tarjetas de galletas */
-    --color-chocolate-card: #8B4513; /* Símil chocolate oscuro */
-    --color-avena-card: #C2B280; /* Beige avena */
-    --color-redvelvet-card: #B03A58; /* Rojo vino/terracota para Red Velvet */
+/* Variables y estilos generales (mantener lo que ya tienes) */
+:root {
+    --primary: #0d4353;
+    --accent: #30a7bd;
+    --light: #fff;
+    --bg: #f7f9fa;
+    --secondary: #f8e9d2;
+    --card-bg: #fcfcfc;
+    --text: #111;
+    --gray: #bbb;
+    --border-radius: 20px;
+    --font-main: 'Montserrat', Arial, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-main);
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: var(--color-light-grey);
-    color: var(--color-dark-grey);
+    background: var(--bg);
+    color: var(--text);
 }
 
-/* Header */
+/* HEADER */
 header {
-    background-color: var(--color-header-bg);
-    padding: 20px 0;
-    border-bottom: 1px solid #eee;
+    background: var(--light);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 }
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.container {
+    width: 90%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
 }
-
-.logo {
+.topbar {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+.logo {
     font-weight: 700;
-    font-size: 1.2em;
-    color: var(--color-primario);
+    font-size: 2rem;
+    color: var(--primary);
+    z-index: 1001;
 }
 
-/* Fix for logo image size */
-.logo-img {
-    max-width: 40px; /* Adjust as needed */
-    height: auto;
-    margin-right: 10px;
-    border-radius: 5px;
+/* Navbar specific styles */
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
 }
 
 .nav-links {
     list-style: none;
-    display: flex;
     margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 30px;
+}
+nav ul li a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    transition: color 0.2s;
+}
+nav ul li a:hover {
+    color: var(--accent);
+}
+.profile {
+    width: 80px;
+    height: 80px;
+    background: url('images/Logo_1.png') center/cover;
+    z-index: 1001;
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.hamburger-menu .bar {
+    width: 100%;
+    height: 3px;
+    background-color: var(--text);
+    transition: all 0.3s ease-in-out;
+    border-radius: 2px;
+}
+
+/* Hamburger menu animations (X shape) */
+.hamburger-menu.open .bar:nth-child(1) {
+    transform: translateY(8.5px) rotate(45deg);
+}
+.hamburger-menu.open .bar:nth-child(2) {
+    opacity: 0;
+}
+.hamburger-menu.open .bar:nth-child(3) {
+    transform: translateY(-8.5px) rotate(-45deg);
+}
+
+
+/* HERO SECTION - REVISADO */
+.hero {
+    margin: 40px auto 10px;
+    background: var(--primary);
+    border-radius: 40px 0 40px 0px;
+    padding: 50px 20px 80px;
+    position: relative;
+    color: var(--light);
+    display: flex; /* Mantenemos flex para centrar el wrapper si es necesario */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    /* text-align: center; Ya no es necesario aquí */
+}
+
+/* El .hero-image y .hero-content originales ya no se usan para esta estructura */
+.hero-image { /* Esto ocultará la imagen de fondo anterior */
+    display: none;
+}
+/* .hero-content { display: none; } O simplemente lo eliminas del HTML si no se usa */
+
+
+/* Contenedor flex para la imagen y el texto dentro de .hero */
+.hero .hero-content-wrapper {
+    display: flex;
+    align-items: center; /* Centra verticalmente los elementos */
+    justify-content: center; /* Centra el contenido horizontalmente si hay espacio */
+    gap: 30px; /* Reducido un poco el espacio entre la imagen y el texto */
+    max-width: 100%; /* El wrapper puede usar todo el ancho del .hero */
+    padding: 0 20px; /* Asegura un padding horizontal dentro del wrapper */
+    flex-wrap: wrap; /* Permitir que los elementos se apilen en pantallas pequeñas */
+}
+
+/* Estilos para el contenedor de la imagen a la izquierda */
+.hero-image-left {
+    flex-basis: 45%; /* Da una base del 45% del ancho disponible */
+    max-width: 45%; /* Asegura que no crezca más allá de esto */
+    flex-shrink: 0; /* Evita que la imagen se encoja si el espacio es limitado */
+    width: 100%; /* Para responsividad */
+    text-align: center; /* Centra la imagen si es más pequeña que su contenedor */
+}
+
+.hero-image-left img {
+    width: 100%; /* La imagen ocupa el 100% de su contenedor */
+    height: auto; /* Mantiene la relación de aspecto */
+    display: block; /* Elimina espacio extra si la imagen es inline */
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 32px rgba(13,67,83,0.17);
+    object-fit: contain; /* Asegura que la imagen no se corte */
+    max-height: 400px; /* Limita la altura de la imagen si es demasiado grande */
+}
+
+
+/* Estilos para el contenedor del texto a la derecha */
+.hero-text-right {
+    flex-basis: 50%; /* Da una base del 50% del ancho disponible */
+    max-width: 50%; /* Asegura que no crezca más allá de esto */
+    flex-grow: 1; /* Permite que el texto crezca y ocupe el espacio restante */
+    text-align: left; /* Alinea el texto a la izquierda */
+    padding: 20px 0; /* Un poco de padding si es necesario */
+}
+
+.hero-text-right h1 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+.hero-text-right h1 .highlight {
+    color: var(--accent);
+}
+.hero-text-right p {
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+
+/* Animación para la imagen */
+@keyframes fadeInSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px); /* Viene desde la izquierda */
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.animated-image {
+    animation: fadeInSlideIn 1.2s ease-out forwards;
+}
+
+/* Responsive para la sección hero */
+@media (max-width: 768px) {
+    .hero .hero-content-wrapper {
+        flex-direction: column; /* Apila la imagen y el texto en pantallas pequeñas */
+        gap: 20px;
+    }
+    .hero-image-left, .hero-text-right {
+        flex-basis: auto; /* Resetear base para que no interfiera en modo columna */
+        max-width: 90%; /* Ocupan casi todo el ancho en móvil */
+        width: 100%;
+        text-align: center; /* Centra el texto en móvil */
+    }
+    .hero-image-left img {
+        max-height: 250px; /* Limita la altura de la imagen en móvil */
+        object-fit: contain; /* Asegura que la imagen no se corte */
+    }
+    .hero-text-right h1 {
+        font-size: 2.2rem;
+    }
+    .hero-text-right p {
+        font-size: 1rem;
+    }
+    /* Deshabilita la animación horizontal en móvil para evitar comportamientos extraños */
+    .animated-image {
+        animation: none;
+        opacity: 1; /* Asegura que sea visible */
+    }
+    /* Puedes definir una nueva animación para móvil si lo deseas, por ejemplo, desde arriba: */
+    /* @keyframes fadeInSlideInMobile {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .animated-image {
+        animation: fadeInSlideInMobile 1s ease-out forwards;
+    } */
+}
+
+
+/* Resto de tu CSS para otras secciones (features, about, products, contact, footer) */
+/* Mantener lo que ya tienes de las secciones anteriores */
+
+/* FEATURES (¿Por Qué Elegirnos?) */
+.why-choose-us-section .content-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.why-choose-us-section .text-and-features {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+.why-choose-us-section .section-description {
+    text-align: left !important; /* Asegura el alineado a la izquierda del párrafo */
+}
+
+.features-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+.feature-card {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 20px #e6ecfa26;
+    font-weight: 500;
+    color: var(--text);
+    min-width: 170px;
+    text-align: left;
+    flex: 1;
+    max-width: calc(33.33% - 20px);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+}
+.feature-card .icon {
+    font-size: 1.5rem;
+    color: var(--accent);
+    flex-shrink: 0;
+}
+
+.why-choose-us-image {
+    flex-shrink: 0;
+    max-width: 450px;
+    width: 100%;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+.why-choose-us-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* PRODUCT/ABOUT SECTION */
+.about-products {
+    display: flex;
+    gap: 35px;
+    margin: 60px auto 30px auto;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0 20px;
+}
+.product-img img {
+    width: 240px;
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+}
+.product-info {
+    text-align: left;
+    max-width: 400px;
+}
+.product-info h3 {
+    color: var(--primary);
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+.product-info p {
+    margin-bottom: 18px;
+    color: var(--text);
+}
+.btn {
+    background: var(--accent);
+    color: var(--light);
+    padding: 9px 24px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s;
+    display: inline-block;
+}
+.btn:hover {
+    background: var(--primary);
+}
+
+/* PRODUCTS GRID (Nuevos estilos para tarjetas más grandes con imagen arriba) */
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin: 60px auto;
+    padding: 0 20px;
+    justify-items: center;
+}
+.product-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 20px #e6ecfa17;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-height: auto;
+}
+.product-card .product-image {
+    width: 100%;
+    height: 200px;
+    background-size: contain; /* Mantiene la imagen completa */
+    background-position: center;
+    background-repeat: no-repeat;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+}
+
+.product-card .product-details {
+    padding: 20px;
+    width: 100%;
+}
+
+.product-title {
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--primary);
+    font-size: 1.15rem;
+}
+.product-price {
+    margin-top: 0;
+    font-size: 1.4rem;
+    color: var(--accent);
+    font-weight: 600;
+}
+
+/* La tarjeta de oferta light-offer y offer */
+.light-offer .product-image, .offer .product-image {
+    height: 120px;
+}
+.offer {
+    background: var(--accent);
+    color: var(--light);
+    font-size: 1.5rem;
+    font-weight: bolder;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    min-height: 250px;
+}
+.offer .product-image {
+    display: none;
+}
+.offer .product-details {
     padding: 0;
 }
 
-.nav-links li {
-    margin-left: 30px;
-}
 
-.nav-links a {
-    text-decoration: none;
-    color: var(--color-dark-grey);
-    font-weight: 600;
-    transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: var(--color-primario);
-}
-
-.search-bar {
-    display: flex;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    overflow: hidden;
-}
-
-.search-bar input {
-    border: none;
-    padding: 8px 15px;
-    outline: none;
-    font-size: 0.9em;
-}
-
-.search-bar button {
-    background-color: transparent;
-    border: none;
-    padding: 8px 15px;
-    cursor: pointer;
-}
-
-.search-bar button img {
-    vertical-align: middle;
-}
-
-/* Hero Section */
-.hero-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 80px 20px;
-    max-width: 1200px;
-    margin: 40px auto;
-    background-color: var(--color-header-bg);
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    position: relative;
-    overflow: hidden;
-}
-
-.hero-content {
-    flex: 1;
-    padding-right: 50px;
-}
-
-.hero-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 4.5em;
-    line-height: 1.1;
-    margin-bottom: 20px;
-    color: var(--color-primario);
-}
-
-.hero-title br:first-of-type {
-    color: var(--color-secundario);
-}
-
-.hero-description {
-    font-size: 1.1em;
-    line-height: 1.6;
-    margin-bottom: 30px;
-    color: var(--color-dark-grey);
-}
-
-.hero-buttons .btn {
-    padding: 12px 25px;
-    border: none;
-    border-radius: 25px;
-    font-size: 1em;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    margin-right: 15px;
-}
-
-.btn-primary {
-    background-color: var(--color-primario);
-    color: var(--color-texto);
-}
-
-.btn-primary:hover {
-    background-color: #145e62;
-}
-
-.hero-image {
-    flex: 0.8;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.hero-image img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 50%;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.special-tag {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    background-color: #E25B81; /* Color de la etiqueta de edición limitada */
-    color: var(--color-texto);
-    padding: 15px 25px;
-    border-radius: 50%; /* Para una etiqueta circular */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    transform: rotate(10deg);
-    white-space: nowrap; /* Evita que el texto se rompa */
-}
-
-.special-tag .tag-text {
-    font-size: 1.1em;
-}
-
-/* Product Showcase */
-.product-showcase {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 30px;
-    padding: 60px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.product-card {
-    background-color: var(--color-header-bg);
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    width: calc(33% - 20px);
-    min-width: 300px;
-    text-align: center;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-}
-
-.product-image {
-    background-color: #E6F3F2; /* Fondo claro para imágenes, ajustar según sea necesario */
-    padding: 20px;
-}
-
-.product-image img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 50%;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.product-info {
-    padding: 25px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.product-card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8em;
-    margin-top: 0;
-    color: var(--color-dark-grey);
-}
-
-.product-card .stars {
-    color: var(--color-star);
-    margin-bottom: 15px;
-    font-size: 1.2em;
-}
-
-.product-card p {
-    font-size: 0.95em;
-    line-height: 1.5;
-    color: var(--color-dark-grey);
-    margin-bottom: 25px;
-}
-
-.card-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.btn-card-primary {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 20px;
-    font-size: 0.9em;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    background-color: var(--color-primario); /* Default for primary card button */
-    color: var(--color-texto);
-}
-
-.btn-card-primary:hover {
-    background-color: #145e62;
-}
-
-/* Specific card colors and button adjustments */
-.chocolate-chip .product-info {
-    background-color: var(--color-chocolate-card);
-    color: var(--color-texto);
-}
-.chocolate-chip .product-info h3,
-.chocolate-chip .product-info p,
-.chocolate-chip .product-info .stars {
-    color: var(--color-texto);
-}
-.chocolate-chip .btn-card-primary {
-    background-color: #F4A460; /* Símil naranja claro */
-    color: var(--color-chocolate-card);
-}
-.chocolate-chip .btn-card-primary:hover {
-    background-color: #EE9A50;
-}
-
-
-.avena-pasa .product-info {
-    background-color: var(--color-avena-card);
-    color: var(--color-dark-grey); /* Texto oscuro para fondo claro */
-}
-.avena-pasa .product-info h3,
-.avena-pasa .product-info p,
-.avena-pasa .product-info .stars {
-    color: var(--color-dark-grey);
-}
-.avena-pasa .btn-card-primary {
-    background-color: var(--color-primario);
-    color: var(--color-texto);
-}
-.avena-pasa .btn-card-primary:hover {
-    background-color: #145e62;
-}
-
-.red-velvet .product-info {
-    background-color: var(--color-redvelvet-card);
-    color: var(--color-texto);
-}
-.red-velvet .product-info h3,
-.red-velvet .product-info p,
-.red-velvet .product-info .stars {
-    color: var(--color-texto);
-}
-.red-velvet .btn-card-primary {
-    background-color: #F8BBD0; /* Rosa claro para Red Velvet */
-    color: var(--color-redvelvet-card);
-}
-.red-velvet .btn-card-primary:hover {
-    background-color: #F6A3C0;
-}
-
-
-/* Footer */
+/* FOOTER */
 footer {
-    background-color: var(--color-header-bg);
-    padding: 30px 20px;
     text-align: center;
+    padding: 35px 0;
+    color: var(--gray);
+    font-size: 1rem;
+    background: #fafbfc;
     border-top: 1px solid #eee;
-    margin-top: 50px;
+    margin-top: 40px;
 }
 
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .topbar {
+        padding: 15px 20px;
+    }
 
-.social-icons a {
-    margin: 0 10px;
-    display: inline-block;
-}
-
-.social-icons img {
-    vertical-align: middle;
-}
-
-.copyright {
-    font-size: 0.9em;
-    color: var(--color-dark-grey);
-}
-
-/* Floating elements (decorative dots) */
-.hero-section::before,
-.hero-section::after {
-    content: '';
-    position: absolute;
-    background-color: rgba(var(--color-primario), 0.2);
-    border-radius: 50%;
-    filter: blur(5px);
-    z-index: 0;
-}
-
-.hero-section::before {
-    width: 60px;
-    height: 60px;
-    top: 20%;
-    left: 5%;
-    background-color: rgba(var(--color-primario), 0.3);
-}
-
-.hero-section::after {
-    width: 40px;
-    height: 40px;
-    bottom: 15%;
-    right: 7%;
-    background-color: rgba(var(--color-secundario), 0.4);
-}
-
-/* Responsive Design */
-@media (max-width: 992px) {
-    .navbar {
-        flex-direction: column;
+    .main-nav {
+        flex-grow: 1;
+        justify-content: flex-end;
         gap: 20px;
     }
-    .nav-links {
-        margin-top: 10px;
-    }
-    .hero-section {
-        flex-direction: column;
-        text-align: center;
-        padding: 50px 20px;
-    }
-    .hero-content {
-        padding-right: 0;
-        margin-bottom: 40px;
-    }
-    .hero-image {
-        margin-top: 30px;
-    }
-    .hero-title {
-        font-size: 3.5em;
-    }
-    .product-card {
-        width: calc(50% - 20px);
-    }
-}
 
-@media (max-width: 768px) {
     .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-    }
-    .nav-links li {
-        margin: 0;
-    }
-    .hero-title {
-        font-size: 2.8em;
-    }
-    .hero-description {
-        font-size: 1em;
-    }
-    .hero-buttons {
+        display: none;
         flex-direction: column;
-        gap: 10px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--light);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        z-index: 999;
+        padding-top: 80px;
+        text-align: center;
+        transition: transform 0.3s ease-out;
+        transform: translateX(100%);
+        justify-content: flex-start;
+        align-items: center;
     }
-    .hero-buttons .btn {
-        margin-right: 0;
+
+    .nav-links.active {
+        display: flex;
+        transform: translateX(0);
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+    }
+    .nav-links li a {
+        font-size: 1.2rem;
+    }
+
+    .hamburger-menu {
+        display: flex;
+    }
+
+    /* Hero section responsive */
+    .hero .hero-content-wrapper {
+        flex-direction: column; /* Apila la imagen y el texto en pantallas pequeñas */
+        gap: 20px;
+    }
+    .hero-image-left, .hero-text-right {
+        flex-basis: auto; /* Resetea el flex-basis para que se comporte como bloque en columna */
+        max-width: 90%; /* Ocupan casi todo el ancho en móvil */
+        width: 100%;
+        text-align: center; /* Centra el texto en móvil */
+    }
+    .hero-image-left img {
+        max-height: 250px; /* Limita la altura de la imagen en móvil */
+        object-fit: contain; /* Asegura que la imagen no se corte */
+    }
+    .hero-text-right h1 {
+        font-size: 2.2rem;
+    }
+    .hero-text-right p {
+        font-size: 1rem;
+    }
+    .animated-image {
+        animation: none; /* Deshabilita la animación horizontal en móvil */
+        opacity: 1; /* Asegura que sea visible */
+    }
+
+    /* Why Choose Us Section Responsive */
+    .why-choose-us-section .content-wrapper {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .why-choose-us-section .text-and-features {
+        max-width: 100%;
+        text-align: center;
+    }
+    .why-choose-us-section .section-description {
+        text-align: center !important;
+    }
+    .features-grid {
+        justify-content: center;
+        margin-top: 20px;
+    }
+    .feature-card {
+        max-width: 90%;
+        text-align: center;
+        flex-direction: column;
+        gap: 5px;
+    }
+    .feature-card .icon {
+        margin-bottom: 5px;
+    }
+    .why-choose-us-image {
+        max-width: 90%;
+    }
+
+    .about-products {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .product-img img {
         width: 80%;
-        max-width: 250px;
+        margin: 0 auto;
+    }
+    .product-info {
+        text-align: center;
+    }
+
+    /* Products grid responsive */
+    .products {
+        grid-template-columns: 1fr;
     }
     .product-card {
-        width: 100%;
+        max-width: 350px;
+        width: 90%;
     }
-    .search-bar {
-        width: 80%;
-        margin-top: 15px;
+
+    .contact-form {
+        width: 95%;
+    }
+    .social-links {
+        margin-bottom: 10px;
     }
 }
 
 @media (max-width: 480px) {
-    .logo span {
-        display: none;
+    .logo {
+        font-size: 1.8rem;
     }
-    .hero-title {
-        font-size: 2.2em;
+    .hero-text-right h1 { /* Ajuste para el h1 dentro del nuevo contenedor */
+        font-size: 2rem;
     }
-    .special-tag {
-        right: 10px;
-        bottom: 10px;
-        padding: 10px 15px;
-        font-size: 0.8em;
+    .hero-text-right p { /* Ajuste para el p dentro del nuevo contenedor */
+        font-size: 1rem;
     }
-    .special-tag .tag-text {
-        font-size: 0.9em;
+    .hero-image-left img { /* Asegura la altura de la imagen en móviles pequeños */
+        max-height: 200px;
     }
-}
-/* Modifica o añade esta regla */
-.footer-logo .logo-img { /* Apunta específicamente a la imagen del logo dentro del footer */
-    max-width: 90px; /* Aumenta este valor para hacerlo más grande, por ejemplo, 60px o 80px */
-    height: auto;
 }
