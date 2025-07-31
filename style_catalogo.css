@@ -19,7 +19,7 @@
     --card-shadow-light: 0 4px 10px rgba(0, 0, 0, 0.1);
     --card-shadow-heavy: 0 8px 20px rgba(0, 0, 0, 0.15);
     --color-card-background: #ffffff;
-    --color-text-dark: #333;
+    --color-text-dark: #000;
     --color-text-medium: #555;
     --color-line: #ccc;
     --hover-scale: 1.02;
@@ -58,11 +58,25 @@ header {
     padding: 20px 0;
 }
 
-.logo {
-    font-weight: 700;
-    font-size: 2rem;
-    color: var(--primary);
-    z-index: 1001;
+/* Estilos para el contenedor del logo y el texto */
+.logo a {
+  display: flex;
+  align-items: center; /* Centra verticalmente la imagen y el texto */
+  text-decoration: none; /* Elimina el subrayado del enlace */
+  color: var(--primary); /* Hereda el color del texto del .logo */
+}
+
+/* Estilos para la imagen del logo */
+.logo-img {
+  height: 50px; /* Ajusta la altura del logo, puedes cambiar este valor */
+  width: auto; /* Mantiene la proporción del logo */
+  margin-right: 10px; /* Agrega un pequeño espacio a la derecha del logo */
+}
+
+/* Estilos para el texto */
+.logo a span {
+  font-weight: 700;
+  font-size: 2rem;
 }
 
 .main-nav {
@@ -213,11 +227,7 @@ footer {
     display: flex;
     flex-direction: column;
     position: relative;
-    /* Eliminar width y max-width aquí para que el grid lo maneje */
-    /* width: 100%; */
-    /* max-width: var(--card-width-desktop); */
-    /* Eliminar margin: 0 auto; porque ya lo está centrando el grid */
-    /* margin: 0 auto; */
+
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
     cursor: pointer;
 }
@@ -290,7 +300,7 @@ footer {
 .product-price {
     font-size: 1.2em;
     font-weight: bold;
-    color: #4CAF50;
+    color: #2e8044;
     margin-top: 5px;
     margin-bottom: 15px;
 }
@@ -301,6 +311,7 @@ footer {
     color: var(--color-text-medium);
     margin: 0;
     flex-grow: 1; /* Permite que la descripción ocupe el espacio disponible */
+    text-align: justify;
 }
 
 /* Responsive */
@@ -339,7 +350,7 @@ footer {
 }
 
 @media (max-width: 480px) {
-    .logo {
+    .logo a span{
         font-size: 1.8rem;
     }
 }

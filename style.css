@@ -3,7 +3,7 @@
 /* Variables y estilos generales (mantener lo que ya tienes) */
 :root {
     --primary: #0d4353;
-    --accent: #30a7bd;
+    --accent: #558e9b;
     --light: #fff;
     --bg: #f7f9fa;
     --secondary: #f8e9d2;
@@ -42,11 +42,25 @@ header {
     justify-content: space-between;
     padding: 20px 0;
 }
-.logo {
-    font-weight: 700;
-    font-size: 2rem;
-    color: var(--primary);
-    z-index: 1001;
+/* Estilos para el contenedor del logo y el texto */
+.logo a {
+  display: flex;
+  align-items: center; /* Centra verticalmente la imagen y el texto */
+  text-decoration: none; /* Elimina el subrayado del enlace */
+  color: var(--primary); /* Hereda el color del texto del .logo */
+}
+
+/* Estilos para la imagen del logo */
+.logo-img {
+  height: 50px; /* Ajusta la altura del logo, puedes cambiar este valor */
+  width: auto; /* Mantiene la proporción del logo */
+  margin-right: 5px; /* Agrega un pequeño espacio a la derecha del logo */
+}
+
+/* Estilos para el texto */
+.logo a span {
+  font-weight: 700;
+  font-size: 2rem;
 }
 
 /* Navbar specific styles */
@@ -75,6 +89,7 @@ nav ul li a:hover {
 .profile {
     width: 80px;
     height: 80px;
+    margin: 0 0  0  0 ;
     background: url('images/Logo_1.png') center/cover;
     z-index: 1001;
 }
@@ -567,9 +582,9 @@ footer {
 }
 
 @media (max-width: 480px) {
-    .logo {
-        font-size: 1.8rem;
-    }
+    .logo a span {
+    font-size: 1.8rem;
+  }
     .hero-text-right h1 { /* Ajuste para el h1 dentro del nuevo contenedor */
         font-size: 2rem;
     }
